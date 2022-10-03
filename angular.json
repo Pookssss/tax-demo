@@ -105,6 +105,255 @@
           }
         }
       }
+    },
+    "rd-vatsbtintra-lib": {
+      "projectType": "library",
+      "root": "projects/rd-vatsbtintra-lib",
+      "sourceRoot": "projects/rd-vatsbtintra-lib/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "tsConfig": "projects/rd-vatsbtintra-lib/tsconfig.lib.json",
+            "project": "projects/rd-vatsbtintra-lib/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/rd-vatsbtintra-lib/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/rd-vatsbtintra-lib/src/test.ts",
+            "tsConfig": "projects/rd-vatsbtintra-lib/tsconfig.spec.json",
+            "karmaConfig": "projects/rd-vatsbtintra-lib/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/rd-vatsbtintra-lib/tsconfig.lib.json",
+              "projects/rd-vatsbtintra-lib/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "tax-filing": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        },
+        "@schematics/angular:application": {
+          "strict": true
+        }
+      },
+      "root": "projects/tax-filing",
+      "sourceRoot": "projects/tax-filing/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/tax-filing",
+            "index": "projects/tax-filing/src/index.html",
+            "main": "projects/tax-filing/src/main.ts",
+            "polyfills": "projects/tax-filing/src/polyfills.ts",
+            "tsConfig": "projects/tax-filing/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "projects/tax-filing/src/favicon.ico",
+              "projects/tax-filing/src/assets",
+              {
+                "glob": "**/*",
+                "input": "projects/rd-vatsbtintra-lib/src/assets",
+                "output": "lib-assets"
+              }
+            ],
+            "styles": [
+              "projects/tax-filing/src/styles.scss",
+              "projects/rd-vatsbtintra-lib/src/styles/font-awesome.css",
+              "projects/rd-vatsbtintra-lib/src/styles/fontawesome-svg.css",
+              "projects/rd-vatsbtintra-lib/src/styles/material-icons.css",
+              "projects/rd-vatsbtintra-lib/src/styles/overide.css",
+              "projects/rd-vatsbtintra-lib/src/styles/buttons.scss",
+              "projects/rd-vatsbtintra-lib/src/styles/colors.scss",
+              "projects/rd-vatsbtintra-lib/src/styles/font.scss",
+              "projects/rd-vatsbtintra-lib/src/styles/form.scss",
+              "projects/rd-vatsbtintra-lib/src/styles/icons.scss",
+              "projects/rd-vatsbtintra-lib/src/styles/line.scss",
+              "projects/rd-vatsbtintra-lib/src/styles/modal.scss",
+              "projects/rd-vatsbtintra-lib/src/styles/overide.scss",
+              "projects/rd-vatsbtintra-lib/src/styles/progress.scss",
+              "projects/rd-vatsbtintra-lib/src/styles/shadow.scss",
+              "projects/rd-vatsbtintra-lib/src/styles/sidemenu.scss",
+              "projects/rd-vatsbtintra-lib/src/styles/table.scss",
+              "projects/rd-vatsbtintra-lib/src/styles/tabs.scss"
+            ],
+            "scripts": [
+              "node_modules/jquery/dist/jquery.min.js",
+              "node_modules/popper.js/dist/umd/popper.min.js",
+              "node_modules/bootstrap/dist/js/bootstrap.min.js",
+              "projects/rd-vatsbtintra-lib/src/js/w3.js",
+              "projects/rd-vatsbtintra-lib/src/js/bootstrap.min.js",
+              "projects/rd-vatsbtintra-lib/src/js/jquery.slim.min.js",
+              "projects/rd-vatsbtintra-lib/src/js/popper.min.js",
+              "projects/rd-vatsbtintra-lib/src/js/fontawesome-all.min.js",
+              "projects/rd-vatsbtintra-lib/src/js/others.js"
+            ]
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/tax-filing/src/environments/environment.ts",
+                  "with": "projects/tax-filing/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            },
+            "uat": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/tax-filing/src/environments/environment.ts",
+                  "with": "projects/tax-filing/src/environments/environment.uat.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ]
+            },
+            "sit": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/tax-filing/src/environments/environment.ts",
+                  "with": "projects/tax-filing/src/environments/environment.sit.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "tax-filing:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "tax-filing:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "tax-filing:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/tax-filing/src/test.ts",
+            "polyfills": "projects/tax-filing/src/polyfills.ts",
+            "tsConfig": "projects/tax-filing/tsconfig.spec.json",
+            "karmaConfig": "projects/tax-filing/karma.conf.js",
+            "assets": [
+              "projects/tax-filing/src/favicon.ico",
+              "projects/tax-filing/src/assets"
+            ],
+            "styles": [
+              "projects/tax-filing/src/styles.scss"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/tax-filing/tsconfig.app.json",
+              "projects/tax-filing/tsconfig.spec.json",
+              "projects/tax-filing/e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/tax-filing/e2e/protractor.conf.js",
+            "devServerTarget": "tax-filing:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "tax-filing:serve:production"
+            }
+          }
+        }
+      }
     }
   },
   "defaultProject": "tax-demo"
