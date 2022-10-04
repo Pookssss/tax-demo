@@ -1,0 +1,29 @@
+.user-nav {
+    display: inline-block;
+    border: 1px solid #333;
+    border-radius: 50%;
+    width: 25px;
+    align-self: center;
+    height: 25px;
+    align-items: center;
+    text-align: center;
+    margin: 0 10px;
+}
+
+.user-nav svg {
+    font-size: 15px;
+}
+
+.header {
+    border-bottom: 8px solid #32a2cd;
+    border-top: 0;
+}
+
+.custom-container {
+    max-width: 1680px;
+}
+
+.custom-dropdown {
+    text-decoration: underline;
+    padding: 0;
+}

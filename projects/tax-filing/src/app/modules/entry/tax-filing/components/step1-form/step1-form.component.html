@@ -1,1 +1,120 @@
-<p>step1-form works!</p>
+<div class="box-content">
+  <div class="card p-5 mt-4 border">
+    <div class="topic line-b mb-4">
+      <h4>1. Tax Filing Detail</h4>
+    </div>
+    <label class="bodybold mb-3"
+      >Type of filing <span class="red">*</span></label
+    >
+    <form>
+      <div class="form-check d-inline-block mr-3">
+        <input
+          id="radio-1"
+          class="checkbox-custom"
+          name="radio"
+          type="radio"
+          [checked]="filingType == 0"
+          value="0"
+          (change)="onFilingTypeChange($event)"
+        />
+        <label for="radio-1" class="radio-label"
+          >Ordinary Filing&nbsp;&nbsp;<i class="fas fa-question-circle"></i
+        ></label>
+      </div>
+      <div class="form-check d-inline-block">
+        <input
+          id="radio-2"
+          name="radio"
+          type="radio"
+          class="checkbox-custom"
+          [checked]="filingType == 1"
+          value="1"
+          (change)="onFilingTypeChange($event)"
+        />
+        <label for="radio-2" class="radio-label">
+          Additional Filing&nbsp;&nbsp;<i class="fas fa-question-circle"></i>
+        </label>
+      </div>
+    </form>
+    <label class="bodybold navy mt-5 mb-3"
+      >VAT Month <span class="red">*</span></label
+    >
+    <form>
+      <div class="form-group row">
+        <div class="col-2">
+          <select
+            class="form-control custom-select"
+            (ngModel)="(month)"
+            (change)="onMonthChange($event)"
+          >
+            <option
+              *ngFor="let month of months"
+              [value]="month.value"
+              [selected]="month.value == monthNow"
+              [disabled]="month.value == monthNow"
+            >
+              {{ month.viewValue }}
+            </option>
+          </select>
+        </div>
+        <div class="col-2">
+          <select
+            class="form-control custom-select"
+            (change)="onchangeYear($event)"
+          >
+            <option
+              *ngFor="let year of years"
+              [value]="year"
+              [selected]="year == yearNow"
+            >
+              {{ year }}
+            </option>
+          </select>
+        </div>
+      </div>
+      <div class="col-2"></div>
+    </form>
+
+    <div class="topic line-b mb-4 mt-5">
+      <h4>2. Tax Computation</h4>
+    </div>
+    <label class="bodybold navy mb-3"
+      >Provide total value textable electronic service
+      <span class="red">*</span></label
+    >
+    <div class="form-group row">
+      <div class="col-8">
+        <label class="bodyregular mb-1">
+          1. Total value of taxable electronic service exclusive of VAT
+        </label>
+      </div>
+      <div class="col-4">
+        <div class="form-group row">
+          <div class="col-12">
+            <select
+              class="form-control custom-select"
+              (ngModel)="(month)"
+              (change)="onMonthChange($event)"
+            >
+              <option
+                *ngFor="let month of months"
+                [value]="month.value"
+                [selected]="month.value == monthNow"
+                [disabled]="month.value == monthNow"
+              >
+                {{ month.viewValue }}
+              </option>
+            </select>
+          </div>
+        </div>
+
+
+            <div class="form-icon">
+              THB
+              <input class="form-control" type="text">
+            </div>
+
+      </div>
+    </div>
+  </div>
+</div>

@@ -10,7 +10,7 @@ import { Step2ReviewConfirmComponent } from '../tax-filing/components/step2-revi
 
 const routes: Routes = [
   {
-    path: '',
+    path: '33',
     component: NavigationComponent,
   },
   {
@@ -34,6 +34,10 @@ const routes: Routes = [
       },
     ],
   },
+  {
+    redirectTo: 'entry/tax-filing/form',
+    path: '**',
+  }
 ];
 
 @NgModule({

@@ -1,8 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { BrowserModule } from '@angular/platform-browser';
 
 import { MainPageRoutingModule } from './main-page-routing.module';
 import { MainPageComponent } from './main-page.component';
+
 
 // 
 import { NavigationComponent } from '../navigation/navigation.component';
@@ -23,7 +25,8 @@ import { Step2ReviewConfirmComponent } from '../tax-filing/components/step2-revi
   ],
   imports: [
     CommonModule,
-    MainPageRoutingModule
+    MainPageRoutingModule,
+    // BrowserModule
   ]
 })
 export class MainPageModule { }
