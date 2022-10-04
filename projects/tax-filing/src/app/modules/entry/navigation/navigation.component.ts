@@ -24,8 +24,9 @@ export class NavigationComponent implements OnInit {
   getScreenEntry(data: string) {
     this.router.navigate(['/main/entry/' + data]);
     console.log('/main/entry/' + data);
-
   }
+
+
 
 
 }

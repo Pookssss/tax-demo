@@ -4,13 +4,13 @@ import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
-    path: 'main',
+    path: '',
     loadChildren: () => import('./modules/entry/main-page/main-page.module').then(m => m.MainPageModule),
     data: { preload: false }
   },
   {
     path: '**',
-    redirectTo: 'main',
+    redirectTo: '',
     pathMatch: 'full'
   }
 ];

@@ -1,0 +1,31 @@
+.tail {
+    position: absolute;
+    top: 50%;
+    color: #a3a3a3;
+    transform: translateY(-50%);
+    pointer-events: none;
+    right: 10px;
+}
+
+.custom-form .input-custom {
+    // padding-right: 40px;
+    text-align: right;
+}
+
+.custom-form .input-custom-disabled {
+    padding-right: 40px;
+    text-align: right;
+    color: #a3a3a3;
+}
+
+.custom-navigation {
+    border-radius: 8px;
+    width: 100px;
+    margin-right: 15px;
+}
+
+.custom-form input.input-custom::-webkit-outer-spin-button,
+.custom-form input.input-custom::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}

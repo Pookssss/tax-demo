@@ -1,4 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, OnChanges } from '@angular/core';
+import { Location } from '@angular/common';
+import { Router } from '@angular/router';
 
 interface Months {
   value: string;
@@ -34,14 +36,12 @@ export class Step1FormComponent implements OnInit {
   // Componen ใช้งาน
   month: Months | any;
   year: number | any;
+  saleAmount: number | any = null;
+  taxAmount: number | any = null;
+  surchargeAmount: number | any = null;
 
-  monthNow = "";
+  monthNow: string | any;
   yearNow = new Date().getFullYear();
-  monthDisable = (d: Date): boolean => {
-    const date = d.getDate();
-    // Prevent Saturday and Sunday from being selected.
-    return date === 0 || date === 6;
-  }
 
 
 
@@ -51,11 +51,24 @@ export class Step1FormComponent implements OnInit {
 
 
 
-  constructor() { }
+  constructor(
+    private localtion: Location,
+    private router: Router
+  ) {
+    let month = new Date().getMonth() + 1;
+    this.monthNow = month.toString();
+  }
 
   ngOnInit(): void {
     this.plusYear();
+    console.log("month noew : ", this.monthNow);
+
   }
+
+  ngOnchange(): void {
+
+  }
+
 
   plusYear() {
     let limityear = 2020;
@@ -69,7 +82,6 @@ export class Step1FormComponent implements OnInit {
 
 
   onFilingTypeChange(event: any) {
-    console.log(event);
     this.filingType = event.target.value;
     if (this.filingType === 0) {
       this.ordinaryFiling = true;
@@ -82,17 +94,41 @@ export class Step1FormComponent implements OnInit {
 
 
   selectMonth(month: any) {
-    console.log(month);
+
   }
 
   onMonthChange(event: any) {
     this.month = event.target.value;
-    console.log(this.month);
+
   }
 
   onchangeYear(event: any) {
     this.year = event.target.value
-    console.log(this.year);
+
+  }
+
+  onChangeSaleAmount() {
+    this.taxAmount = this.saleAmount * 0.07;
+    // console.log(this.taxAmount);
+
+  }
+
+
+  backPage() {
+    this.localtion.back();
+  }
+
+  validateForm(data: number) {
+    if (data == 2) {
+      this.nextStep();
+    } else {
+      alert("กรุณากรอกข้อมูลให้ครบถ้วน");
+    }
+  }
+
+  nextStep() {
+    console.log("next step");
+    this.router.navigate(['main/entry/tax-filing/confirm']);
   }
 
 }

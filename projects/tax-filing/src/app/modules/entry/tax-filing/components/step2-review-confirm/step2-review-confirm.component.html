@@ -1,1 +1,95 @@
-<p>step2-review-confirm works!</p>
+<div class="custom-main">
+  <div class="text-center title-size mt-5 mb-5">
+    <h1 class="navy">Submit Tax Filing</h1>
+  </div>
+
+  <ul class="progressbar">
+    <li class="done" [routerLink]="'/main/entry/tax-filing/form'">
+      <span>Input Detail</span>
+    </li>
+    <li class="active">
+      <span>Review & Confirm</span>
+    </li>
+  </ul>
+  <!--  -->
+  <div class="box-content">
+    <div class="card p-5 mt-4 mb-4 border">
+      <div class="topic line-b mb-4">
+        <h4>Tax Filing Detail</h4>
+      </div>
+      <div class="row">
+        <div class="col-2">
+          <label class="bodybold mb-3">Type of Filing </label>
+        </div>
+        <div class="col-2">
+          <p>Ordinary Filing</p>
+        </div>
+      </div>
+      <!--  -->
+      <div class="row mb-3">
+        <div class="col-2">
+          <label class="bodybold mb-3">VAT Month</label>
+        </div>
+        <div class="col-2">
+          <p>September 2021</p>
+        </div>
+      </div>
+      <!--  -->
+      <div class="topic line-b mb-4 mt-5">
+        <h4>Tax Computation</h4>
+      </div>
+      <div class="form-group row">
+        <div class="col-9">
+          <div class="bodybold mb-1">
+            Total value of taxable electronic service exclusive of VAT
+          </div>
+        </div>
+        <div class="col-2">
+          <div class="form-icon custom-form tex-right">
+            <h4>230,000.00</h4>
+          </div>
+        </div>
+        <div class="col-1">THB</div>
+      </div>
+      <!--  -->
+      <div class="form-group row">
+        <div class="col-9">
+          <div class="bodybold mb-1">Total VAT to be remitted</div>
+          <b>
+            (7% of total value of taxable electronic service exclusive of VAT)
+          </b>
+        </div>
+        <div class="col-2">
+          <div class="form-icon custom-form tex-right">
+            <h4>16,100.00</h4>
+          </div>
+        </div>
+        <div class="col-1">THB</div>
+      </div>
+      <!--  -->
+      <div class="form-group row mb-5">
+        <div class="col-9">
+          <div class="bodybold mb-1">Total Amount Payable</div>
+        </div>
+        <div class="col-2">
+          <div class="form-icon custom-form tex-right">
+            <h4>16,100.00</h4>
+          </div>
+        </div>
+        <div class="col-1">THB</div>
+      </div>
+      <!--  -->
+      <div class="topic line-b mb-4 mt-5">
+        <h4>Declaration</h4>
+      </div>
+      <b>
+        I hereby certify that information given above are ture and correct and
+        agree to be bound by such information.
+      </b>
+    </div>
+  </div>
+  <!--  -->
+  <div class="text-center mt-3 pb-5">
+    <button type="button" class="btn btn-primary">Confirm and Submit</button>
+  </div>
+</div>
