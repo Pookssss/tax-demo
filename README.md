@@ -2,6 +2,20 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.18.
 
+## ขั้นตอนการ run project
+
+1. ติดตั้ง `node modules`
+
+`npm i` หรือ `npm i --force`
+
+2. build file lib `ng build`
+
+`ng build rd-vatsbtintra-lib` หรือ `npm run build-rd-vatsbtintra-lib`
+
+3. run project
+
+`npm run start-tax-filing` หรือ `ng serve tax-filing`
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
